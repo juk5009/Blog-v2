@@ -1,4 +1,4 @@
-package shop.mtcoding.blogex.controller;
+package shop.mtcoding.blog.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -7,11 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import shop.mtcoding.blogex.dto.user.UserReq.JoinReqDto;
-import shop.mtcoding.blogex.dto.user.UserReq.LoginReqDto;
-import shop.mtcoding.blogex.handler.ex.CustomException;
-import shop.mtcoding.blogex.model.User;
-import shop.mtcoding.blogex.service.UserService;
+import shop.mtcoding.blog.dto.user.UserReq.JoinReqDto;
+import shop.mtcoding.blog.dto.user.UserReq.LoginReqDto;
+import shop.mtcoding.blog.handler.ex.CustomException;
+import shop.mtcoding.blog.model.User;
+import shop.mtcoding.blog.service.UserService;
 
 @Controller
 public class UserController {

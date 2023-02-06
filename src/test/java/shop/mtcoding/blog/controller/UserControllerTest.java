@@ -1,4 +1,4 @@
-package shop.mtcoding.blogex.controller;
+package shop.mtcoding.blog.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -15,7 +15,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
-import shop.mtcoding.blogex.model.User;
+import shop.mtcoding.blog.model.User;
 
 /*
  * SpringBootTest는 통합테스트 (실제 환경과 동일하게 Bean이 생성됨)

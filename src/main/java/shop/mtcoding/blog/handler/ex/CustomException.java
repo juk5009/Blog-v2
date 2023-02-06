@@ -1,4 +1,4 @@
-package shop.mtcoding.blogex.handler.ex;
+package shop.mtcoding.blog.handler.ex;
 
 import org.springframework.http.HttpStatus;
 

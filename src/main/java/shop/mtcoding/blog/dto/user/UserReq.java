@@ -1,4 +1,4 @@
-package shop.mtcoding.blogex.dto.user;
+package shop.mtcoding.blog.dto.user;
 
 import lombok.Getter;
 import lombok.Setter;

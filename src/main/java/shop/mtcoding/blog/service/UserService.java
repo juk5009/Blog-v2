@@ -1,14 +1,14 @@
-package shop.mtcoding.blogex.service;
+package shop.mtcoding.blog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import shop.mtcoding.blogex.dto.user.UserReq.JoinReqDto;
-import shop.mtcoding.blogex.dto.user.UserReq.LoginReqDto;
-import shop.mtcoding.blogex.handler.ex.CustomException;
-import shop.mtcoding.blogex.model.User;
-import shop.mtcoding.blogex.model.UserRepository;
+import shop.mtcoding.blog.dto.user.UserReq.JoinReqDto;
+import shop.mtcoding.blog.dto.user.UserReq.LoginReqDto;
+import shop.mtcoding.blog.handler.ex.CustomException;
+import shop.mtcoding.blog.model.User;
+import shop.mtcoding.blog.model.UserRepository;
 
 @Service
 public class UserService {

@@ -1,4 +1,4 @@
-package shop.mtcoding.blogex.controller;
+package shop.mtcoding.blog.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import shop.mtcoding.blogex.dto.board.BoardReq.BoardSaveReqDto;
-import shop.mtcoding.blogex.handler.ex.CustomException;
-import shop.mtcoding.blogex.model.User;
-import shop.mtcoding.blogex.service.BoardService;
+import shop.mtcoding.blog.dto.board.BoardReq.BoardSaveReqDto;
+import shop.mtcoding.blog.handler.ex.CustomException;
+import shop.mtcoding.blog.model.User;
+import shop.mtcoding.blog.service.BoardService;
 
 @Controller
 public class BoardController {
@@ -35,8 +35,11 @@ public class BoardController {
         if (boardSaveReqDto.getContent() == null || boardSaveReqDto.getContent().isEmpty()) {
             throw new CustomException("content를 작성해주세요");
         }
+        if (boardSaveReqDto.getTitle().length() > 100) {
+            throw new CustomException("title 길이를 100자 이내로 작성해주세요");
+        }
 
-        boardService.글쓰기(boardSaveReqDto);
+        boardService.글쓰기(boardSaveReqDto, principal.getId());
 
         return "redirect:/";
     }

@@ -1,13 +1,13 @@
-package shop.mtcoding.blogex;
+package shop.mtcoding.blog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BlogexApplication {
+public class BlogApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BlogexApplication.class, args);
+		SpringApplication.run(BlogApplication.class, args);
 	}
 
 }

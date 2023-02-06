@@ -1,4 +1,4 @@
-package shop.mtcoding.blogex.util;
+package shop.mtcoding.blog.util;
 
 public class Script {
     public static String back(String msg) {

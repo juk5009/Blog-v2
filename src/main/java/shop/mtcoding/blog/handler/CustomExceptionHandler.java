@@ -1,11 +1,11 @@
-package shop.mtcoding.blogex.handler;
+package shop.mtcoding.blog.handler;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import shop.mtcoding.blogex.handler.ex.CustomException;
-import shop.mtcoding.blogex.util.Script;
+import shop.mtcoding.blog.handler.ex.CustomException;
+import shop.mtcoding.blog.util.Script;
 
 @RestControllerAdvice
 public class CustomExceptionHandler {

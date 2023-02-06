@@ -1,4 +1,4 @@
-package shop.mtcoding.blogex.model;
+package shop.mtcoding.blog.model;
 
 import java.sql.Timestamp;
 
