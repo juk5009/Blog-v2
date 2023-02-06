@@ -28,3 +28,8 @@
 - 아이디중복체크, 회원수정하기, 페이징
 ### 5단계
 - 검색
+
+
+### 기술블로그
+- 회원가입 (https://snapdragon-maple-d1e.notion.site/2023-02-02-02-03-Create-Blog-19d0a319d0654b88a7e09249b3d4a6d4)
+- 로그인 (https://snapdragon-maple-d1e.notion.site/2023-02-02-02-03-Create-Blog-19d0a319d0654b88a7e09249b3d4a6d4)
