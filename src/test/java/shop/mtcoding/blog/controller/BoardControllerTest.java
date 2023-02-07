@@ -39,6 +39,24 @@ public class BoardControllerTest {
     private MockHttpSession mockSession;
 
     @Test
+    public void detail_test() throws Exception {
+        // given
+        int id = 1;
+        // when
+        ResultActions resultActions = mvc.perform(get("/board/" + id));
+        Map<String, Object> map = resultActions.andReturn().getModelAndView().getModel();
+        BoardResp.BoardDetailRespDto dto = (BoardResp.BoardDetailRespDto) map.get("dto");
+        String model = om.writeValueAsString(dto);
+        System.out.println("테스트 " + model);
+        // then
+        resultActions.andExpect(status().isOk());
+
+        assertThat(dto.getUsername()).isEqualTo("ssar");
+        assertThat(dto.getUserId()).isEqualTo(1);
+        assertThat(dto.getTitle()).isEqualTo("1번째 제목");
+    }
+
+    @Test
     public void main_test() throws Exception {
         // given
 
