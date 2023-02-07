@@ -10,6 +10,7 @@ import shop.mtcoding.blog.handler.ex.CustomException;
 import shop.mtcoding.blog.model.User;
 import shop.mtcoding.blog.model.UserRepository;
 
+@Transactional(readOnly = true)
 @Service
 public class UserService {
     @Autowired
@@ -27,7 +28,6 @@ public class UserService {
         }
     }
 
-    @Transactional(readOnly = true)
     public User 로그인(LoginReqDto loginReqDto) {
         User principal = userRepository.findByUsernameAndPassword(loginReqDto.getUsername(), loginReqDto.getPassword());
         if (principal == null) {
