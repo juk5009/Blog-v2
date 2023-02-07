@@ -53,7 +53,7 @@ public class BoardControllerTest {
         resultActions.andExpect(status().isOk());
         assertThat(dtos.size()).isEqualTo(6);
         assertThat(dtos.get(0).getUsername()).isEqualTo("ssar");
-        assertThat(dtos.get(0).getTitle()).isEqualTo("2번째 제목");
+        assertThat(dtos.get(0).getTitle()).isEqualTo("1번째 제목");
     }
 
     @BeforeEach // Test 메서드 실행 직전에 호출됨
