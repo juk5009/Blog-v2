@@ -13,8 +13,9 @@ public class CustomExceptionHandler {
     @ExceptionHandler(CustomException.class)
     public ResponseEntity<?> customException(CustomException e) {
 
-        return new ResponseEntity<>(Script.back(e.getMessage()), e.getStatus());
-
+        // return new ResponseEntity<>(Script.back(e.getMessage()), e.getStatus());
+        String responseBody = Script.back(e.getMessage());
+        return new ResponseEntity<>(responseBody, e.getStatus());
     }
 
 }
