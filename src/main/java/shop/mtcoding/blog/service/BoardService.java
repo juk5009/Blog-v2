@@ -1,5 +1,9 @@
 package shop.mtcoding.blog.service;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -25,7 +29,18 @@ public class BoardService {
     public void 글쓰기(BoardSaveReqDto boardSaveReqDto, int userId) {
 
         // 1. content 내용을 Document로 받고, img 찾아내서(0,1,2), src를 찾아 thumbnail 추가
-        int result = boardRepository.insert(boardSaveReqDto.getTitle(), boardSaveReqDto.getContent(), null,
+        String thumbnail = "";
+        Document document = Jsoup.parse(boardSaveReqDto.getContent());
+        Elements elements = document.select("img");
+        Element element = elements.first();
+        if (element != null) {
+            thumbnail = element.attr("src");
+
+        } else {
+            thumbnail = "/images/dora.png";
+        }
+
+        int result = boardRepository.insert(boardSaveReqDto.getTitle(), boardSaveReqDto.getContent(), thumbnail,
                 userId);
         if (result != 1) {
             throw new CustomException("글쓰기실패", HttpStatus.INTERNAL_SERVER_ERROR);
@@ -54,6 +69,19 @@ public class BoardService {
 
     @Transactional
     public void 게시글수정(int id, BoardUpdateReqDto boardUpdateReqDto, int principalId) {
+
+        String thumbnail = "";
+        Document document = Jsoup.parse(boardUpdateReqDto.getContent());
+        Elements elements = document.select("img");
+        Element element = elements.first();
+
+        if (element != null) {
+            thumbnail = element.attr("src");
+
+        } else {
+            thumbnail = "/images/dora.png";
+        }
+
         Board boardPS = boardRepository.findById(id);
         if (boardPS == null) {
             throw new CustomApiException("해당 게시글을 찾을 수 없습니다.");
@@ -63,7 +91,8 @@ public class BoardService {
             throw new CustomApiException("해당 게시글을 수정할 권한이 없습니다", HttpStatus.FORBIDDEN);
         }
 
-        int result = boardRepository.updateById(id, boardUpdateReqDto.getTitle(), boardUpdateReqDto.getContent());
+        int result = boardRepository.updateById(id, boardUpdateReqDto.getTitle(), boardUpdateReqDto.getContent(),
+                thumbnail);
         if (result != 1) {
             throw new CustomApiException("해당 게시글을 수정할 권한이 없습니다", HttpStatus.FORBIDDEN);
         }
