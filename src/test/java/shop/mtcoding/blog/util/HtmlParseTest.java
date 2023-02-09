@@ -11,16 +11,21 @@ public class HtmlParseTest {
     @Test
     public void jsoup_test1() throws Exception {
         Document doc = Jsoup.connect("https://en.wikipedia.org/").get();
+        System.out.println("================================");
         System.out.println(doc.title());
         Elements newsHeadlines = doc.select("#mp-itn b a");
+        System.out.println(newsHeadlines);
+        System.out.println("================================");
+
         for (Element headline : newsHeadlines) {
             System.out.println(headline.attr("title"));
+            System.out.println("================================");
             System.out.println(headline.absUrl("href"));
         }
     }
 
     @Test
-    public void parse_test1() {
+    public void parse_test2() {
         String html = "<p>1</p><p><img src=\"data:image/png;base64,iVBORw0KG\"></p>";
         String tag = parseEL(html, "img");
         System.out.println(tag);
